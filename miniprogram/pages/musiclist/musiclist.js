@@ -1,57 +1,39 @@
-// pages/demo/demo.js
-import regeneratorRuntime from '../../utils/runtime.js'
+// pages/musiclist/musiclist.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
-  getMusicInfo() {
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'music'
-      }
-    }).then(res => {
-      console.log(res)
-    })
-  },
-  getMovieInfo() {
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'movie'
-      }
-    }).then(res => {
-      console.log(res)
-    })
+    musiclist: [],
+    listInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // async await ES7
-    // console.log(this.foo())
-    this.foo()
-    // this.timeout()
-  },
-
-  async foo() {
-    console.log('foo')
-    let res = await this.timeout()
-    console.log(res)
-  },
-
-  timeout() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log(1)
-        resolve('resolved')
-      }, 1000)
+    console.log(options)
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.cloud.callFunction({
+      name: 'music',
+      data: {
+        playlistId: options.playlistId,
+        $url: 'musiclist'
+      }
+    }).then(res => {
+      console.log(res)
+      const pl = res.result.playlist
+      this.setData({
+        musiclist: pl.tracks,
+        listInfo: {
+          coverImgUrl: pl.coverImgUrl,
+          name: pl.name
+        }
+      })
+      wx.hideLoading()
     })
   },
 

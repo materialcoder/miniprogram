@@ -1,5 +1,4 @@
-// pages/demo/demo.js
-import regeneratorRuntime from '../../utils/runtime.js'
+// pages/player/player.js
 Page({
 
   /**
@@ -9,50 +8,11 @@ Page({
 
   },
 
-  getMusicInfo() {
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'music'
-      }
-    }).then(res => {
-      console.log(res)
-    })
-  },
-  getMovieInfo() {
-    wx.cloud.callFunction({
-      name: 'tcbRouter',
-      data: {
-        $url: 'movie'
-      }
-    }).then(res => {
-      console.log(res)
-    })
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // async await ES7
-    // console.log(this.foo())
-    this.foo()
-    // this.timeout()
-  },
-
-  async foo() {
-    console.log('foo')
-    let res = await this.timeout()
-    console.log(res)
-  },
-
-  timeout() {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log(1)
-        resolve('resolved')
-      }, 1000)
-    })
+    console.log(options)
   },
 
   /**
