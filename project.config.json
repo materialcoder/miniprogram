@@ -41,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -61,6 +61,20 @@
 					"name": "musiclist",
 					"pathName": "pages/musiclist/musiclist",
 					"query": "playlistId=924680166",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "blog",
+					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "nickName= \"任勇军\"&avatar= \"https://wx.qlogo.cn/mmopen/vi_32/vU88UyCnNwjdsZ0Xb…aBDWHZNaAghDpCjG5AQpT6XriaXxh467cnh8wOGzDy0yw/132\"",
 					"scene": null
 				}
 			]

@@ -1,2 +1,30 @@
-<!--miniprogram/pages/blog/blog.wxml-->
-<text>miniprogram/pages/blog/blog.wxml</text>
+<view class="container">
+  <!-- 头部 -->
+  <view class="header">
+    <view class="publish-container" bind:tap="onPublish">
+      <i class="iconfont icon-fabu"></i>
+    </view>
+    <view class="search-container">
+      <c-search iconfont="iconfont" icon-sousuo="icon-sousuo" bind:search="onSearch"/>
+    </view>
+  </view>
+
+  <!-- 博客卡片列表 -->
+  <view class="blog-list">
+    <block wx:for="{{blogList}}" wx:key="{{_id}}">
+      <view class="blog-panel">
+        <c-blog-card blog="{{item}}" data-blogid="{{item._id}}" bind:tap="goComment"/>
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部弹出层 -->
+  <!-- <c-bottom-modal modalShow="{{modalShow}}">
+    <view slot="slot2">
+      <view>插槽</view>
+      <button>按钮</button>
+    </view>
+    <view slot="slot1">插槽2</view>
+  </c-bottom-modal> -->
+  <c-login modalShow="{{modalShow}}" bind:loginSuccess="onLoginSuccess" bind:loginFail="onLoginFail"></c-login>
+</view>

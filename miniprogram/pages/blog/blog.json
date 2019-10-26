@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "c-search": "/components/search/search",
+    "c-bottom-modal": "/components/bottom-modal/bottom-modal",
+    "c-login": "/components/login/login",
+    "c-blog-card": "/components/blog-card/blog-card"
+  },
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true
 }
