@@ -156,7 +156,13 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (event) {
+    console.log(event)
+    let blogObj = event.target.dataset.blog
+    return {
+      title: blogObj.content,
+      path: '/pages/blog-comment/blog-comment?blogid=' + blogObj._id,
+      // imageUrl: ''
+    }
   }
 })

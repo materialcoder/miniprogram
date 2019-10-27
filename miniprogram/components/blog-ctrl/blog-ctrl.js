@@ -6,7 +6,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    blogId: String
+    blogId: String,
+    blog: Object
   },
 
   externalClasses: ['iconfont', 'icon-pinglun', 'icon-fenxiang'],
@@ -82,10 +83,12 @@ Component({
           modalShow: false,
           content: '',
         })
+        // 父元素刷新评论页面
+        this.triggerEvent('refreshCommentList')
       })
 
       // 推送模板消息
-      wx.cloud.callFunction({
+      /* wx.cloud.callFunction({
         name: 'sendMessage',
         data: {
           content,
@@ -94,7 +97,7 @@ Component({
         }
       }).then((res) => {
         console.log(res)
-      })
+      }) */
     },
 
     onLoginSuccess(event) {

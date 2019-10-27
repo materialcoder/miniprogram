@@ -40,6 +40,10 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 4,
 			"list": [
@@ -75,6 +79,13 @@
 					"name": "blog-edit",
 					"pathName": "pages/blog-edit/blog-edit",
 					"query": "nickName= \"任勇军\"&avatar= \"https://wx.qlogo.cn/mmopen/vi_32/vU88UyCnNwjdsZ0Xb…aBDWHZNaAghDpCjG5AQpT6XriaXxh467cnh8wOGzDy0yw/132\"",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "blog-comment",
+					"pathName": "pages/blog-comment/blog-comment",
+					"query": "blogId=1c756ce65db43962005b33fa7a69e6c3",
 					"scene": null
 				}
 			]
