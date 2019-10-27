@@ -49,9 +49,11 @@ Component({
       })
     },
 
-    onSend() {
+    onSend(event) {
       // 插入云数据库
-      let content = this.data.content
+      // console.log(event)
+      let formId = event.detail.formId
+      let content = event.detail.value.content
       if (content.trim() == '') {
         wx.showModal({
           title: '评论内容不能为空',
@@ -83,11 +85,15 @@ Component({
       })
 
       // 推送模板消息
-    },
-
-    onInput(event) {
-      this.setData({
-        content: event.detail.value
+      wx.cloud.callFunction({
+        name: 'sendMessage',
+        data: {
+          content,
+          formId,
+          blogId: this.properties.blogId
+        }
+      }).then((res) => {
+        console.log(res)
       })
     },
 
